@@ -77,6 +77,17 @@ func (this *List) PrintReverse(node *ListNode) {
 	}
 }
 
+func (this *List) ReverseList(node *ListNode) {
+	if node.Next == nil {
+		this.Head = node
+		return
+	}
+	this.ReverseList(node.Next)
+	q := node.Next
+	q.Next = node
+	node.Next = nil
+}
+
 func main() {
 	list := &List{}
 	list.PushBack(&ListNode{Val: 1})
@@ -96,12 +107,17 @@ func main() {
 	fmt.Println(list.PopBack().Val)
 	fmt.Println(list.PopBack().Val)
 
-	list.PrintList()
-
+	fmt.Println("Adding 9 & 13 on the back")
 	list.PushBack(&ListNode{Val: 9})
 	list.PushBack(&ListNode{Val: 13})
 
+	fmt.Println("Print normal:")
 	list.PrintList()
+	fmt.Println("Print reverse:")
 	list.PrintReverse(list.Head)
+
+	fmt.Println("Reverse the list and print normal:")
+	list.ReverseList(list.Head)
+	list.PrintList()
 
 }
