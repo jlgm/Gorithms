@@ -1,10 +1,5 @@
 package main
 
-import (
-	"container/heap"
-	"fmt"
-)
-
 type IntHeap []int
 
 func (h IntHeap) Len() int           { return len(h) }
@@ -26,12 +21,12 @@ func (h *IntHeap) Pop() interface{} {
 }
 
 // TODO: implement a heap of some type of struct
-func main() {
-	h := &IntHeap{2, 1, 5}
-	heap.Init(h)
-	heap.Push(h, 3)
-	fmt.Printf("minimum: %d\n", (*h)[0])
-	for h.Len() > 0 {
-		fmt.Printf("%d ", heap.Pop(h))
-	}
-}
+// func main() {
+// 	h := &IntHeap{2, 1, 5}
+// 	heap.Init(h)
+// 	heap.Push(h, 3)
+// 	fmt.Printf("minimum: %d\n", (*h)[0])
+// 	for h.Len() > 0 {
+// 		fmt.Printf("%d ", heap.Pop(h))
+// 	}
+// }
