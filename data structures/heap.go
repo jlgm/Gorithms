@@ -20,7 +20,6 @@ func (h *IntHeap) Pop() interface{} {
 	return x
 }
 
-// TODO: implement a heap of some type of struct
 // func main() {
 // 	h := &IntHeap{2, 1, 5}
 // 	heap.Init(h)
