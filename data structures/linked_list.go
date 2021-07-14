@@ -88,36 +88,36 @@ func (this *List) ReverseList(node *ListNode) {
 	node.Next = nil
 }
 
-func main() {
-	list := &List{}
-	list.PushBack(&ListNode{Val: 1})
-	list.PushBack(&ListNode{Val: 2})
-	list.PushBack(&ListNode{Val: 4})
-	list.PushBack(&ListNode{Val: 8})
-	list.PushFront(&ListNode{Val: -12})
-	list.PushBack(&ListNode{Val: 15})
+// func main() {
+// 	list := &List{}
+// 	list.PushBack(&ListNode{Val: 1})
+// 	list.PushBack(&ListNode{Val: 2})
+// 	list.PushBack(&ListNode{Val: 4})
+// 	list.PushBack(&ListNode{Val: 8})
+// 	list.PushFront(&ListNode{Val: -12})
+// 	list.PushBack(&ListNode{Val: 15})
 
-	list.PrintList()
+// 	list.PrintList()
 
-	fmt.Println("Removing from front:")
-	fmt.Println(list.PopFront().Val)
-	fmt.Println(list.PopFront().Val)
+// 	fmt.Println("Removing from front:")
+// 	fmt.Println(list.PopFront().Val)
+// 	fmt.Println(list.PopFront().Val)
 
-	fmt.Println("Removing from back:")
-	fmt.Println(list.PopBack().Val)
-	fmt.Println(list.PopBack().Val)
+// 	fmt.Println("Removing from back:")
+// 	fmt.Println(list.PopBack().Val)
+// 	fmt.Println(list.PopBack().Val)
 
-	fmt.Println("Adding 9 & 13 on the back")
-	list.PushBack(&ListNode{Val: 9})
-	list.PushBack(&ListNode{Val: 13})
+// 	fmt.Println("Adding 9 & 13 on the back")
+// 	list.PushBack(&ListNode{Val: 9})
+// 	list.PushBack(&ListNode{Val: 13})
 
-	fmt.Println("Print normal:")
-	list.PrintList()
-	fmt.Println("Print reverse:")
-	list.PrintReverse(list.Head)
+// 	fmt.Println("Print normal:")
+// 	list.PrintList()
+// 	fmt.Println("Print reverse:")
+// 	list.PrintReverse(list.Head)
 
-	fmt.Println("Reverse the list and print normal:")
-	list.ReverseList(list.Head)
-	list.PrintList()
+// 	fmt.Println("Reverse the list and print normal:")
+// 	list.ReverseList(list.Head)
+// 	list.PrintList()
 
-}
+// }

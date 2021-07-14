@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
@@ -54,18 +54,18 @@ func (this *BSTree) preOrderPrint(node *TreeNode) {
 	this.preOrderPrint(node.Right)
 }
 
-func main() {
-	tree := &BSTree{}
-	tree.insert(&TreeNode{Val: 5})
-	tree.insert(&TreeNode{Val: 2})
-	tree.insert(&TreeNode{Val: 8})
-	tree.insert(&TreeNode{Val: 1})
-	tree.insert(&TreeNode{Val: 7})
-	tree.insert(&TreeNode{Val: 3})
-	tree.insert(&TreeNode{Val: 15})
-	tree.insert(&TreeNode{Val: 13})
-	tree.insert(&TreeNode{Val: 12})
-	tree.insert(&TreeNode{Val: 14})
+// func main() {
+// 	tree := &BSTree{}
+// 	tree.insert(&TreeNode{Val: 5})
+// 	tree.insert(&TreeNode{Val: 2})
+// 	tree.insert(&TreeNode{Val: 8})
+// 	tree.insert(&TreeNode{Val: 1})
+// 	tree.insert(&TreeNode{Val: 7})
+// 	tree.insert(&TreeNode{Val: 3})
+// 	tree.insert(&TreeNode{Val: 15})
+// 	tree.insert(&TreeNode{Val: 13})
+// 	tree.insert(&TreeNode{Val: 12})
+// 	tree.insert(&TreeNode{Val: 14})
 
-	tree.inOrderPrint(tree.root)
-}
+// 	tree.inOrderPrint(tree.root)
+// }
