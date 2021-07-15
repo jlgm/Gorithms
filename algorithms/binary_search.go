@@ -32,12 +32,12 @@ func upperBound(arr *[]int, elem int) int {
 	return lo
 }
 
-func main() {
-	arr := []int{1, 2, 3, 3, 3, 5, 5, 5, 5, 5, 5} // array has to be sorted
+// func main() {
+// 	arr := []int{1, 2, 3, 3, 3, 5, 5, 5, 5, 5, 5} // array has to be sorted
 
-	fmt.Println("3:", lowerBound(&arr, 3), upperBound(&arr, 3))
+// 	fmt.Println("3:", lowerBound(&arr, 3), upperBound(&arr, 3))
 
-	fmt.Println("4:", lowerBound(&arr, 4), upperBound(&arr, 4))
+// 	fmt.Println("4:", lowerBound(&arr, 4), upperBound(&arr, 4))
 
-	fmt.Println("5:", lowerBound(&arr, 5), upperBound(&arr, 5))
-}
+// 	fmt.Println("5:", lowerBound(&arr, 5), upperBound(&arr, 5))
+// }
