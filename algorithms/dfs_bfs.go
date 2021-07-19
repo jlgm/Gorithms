@@ -45,9 +45,9 @@ func (g *graph) dfs(v int) {
 	}
 }
 
-func (g *graph) bfs() {
+func (g *graph) bfs(v int) {
 	q := list.New()
-	q.PushBack(1) 
+	q.PushBack(v)
 	for q.Len() > 0 {
 		e := q.Front()
 		v := e.Value.(int)
@@ -72,5 +72,5 @@ func (g *graph) bfs() {
 // 	g.dfs(1)
 // 	fmt.Println()
 // 	g.reset()
-// 	g.bfs()
+// 	g.bfs(1)
 // }
