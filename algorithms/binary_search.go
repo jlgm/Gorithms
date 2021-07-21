@@ -4,8 +4,6 @@ upper_bound is the index of first element which is GREATER than val (1, 2, 3, 3,
 */
 package main
 
-import "fmt"
-
 func lowerBound(arr *[]int, elem int) int {
 	lo, hi := 0, len(*arr)-1
 	for lo <= hi {
