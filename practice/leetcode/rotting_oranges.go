@@ -1,53 +1,53 @@
-var (
-	dx = []int{0, 1, 0, -1}
-	dy = []int{1, 0, -1, 0}
-)
-
-type pair struct {
+type cell struct {
 	x int
 	y int
 	d int
 }
 
+var (
+	dx = []int{1, 0, -1, 0}
+	dy = []int{0, 1, 0, -1}
+)
+
 func orangesRotting(grid [][]int) int {
-
-	m := make([][]bool, len(grid))
-	for i := range m {
-		m[i] = make([]bool, len(grid[0]))
-	}
 	q := list.New()
-	ans := 0
-
-	for i := 0; i < len(grid); i++ {
-		for j := 0; j < len(grid[i]); j++ {
-			if grid[i][j] != 2 {
-				continue
+	n, m, ans := len(grid), len(grid[0]), 0
+	mark := make([][]bool, n)
+	for i := 0; i < n; i++ {
+		mark[i] = make([]bool, m)
+		for j := 0; j < m; j++ {
+			if grid[i][j] == 2 {
+				c := cell{i, j, 0}
+				q.PushBack(c)
 			}
-			q.PushBack(pair{i, j, 0})
 		}
 	}
+
 	for q.Len() > 0 {
 		e := q.Front()
-		v := e.Value.(pair)
-		if !m[v.x][v.y] && v.d > ans {
-			ans = v.d
-		}
-		m[v.x][v.y] = true
+		v := e.Value.(cell)
+		mark[v.x][v.y] = true
 
-		for k := 0; k < len(dx); k++ {
-			x, y, d := v.x+dx[k], v.y+dy[k], v.d+1
-			if x < 0 || x >= len(grid) || y < 0 || y >= len(grid[0]) {
+		for i := 0; i < 4; i++ {
+			x, y, d := v.x+dx[i], v.y+dy[i], v.d+1
+			if x < 0 || x >= n || y < 0 || y >= m {
 				continue
 			}
-			if !m[x][y] && grid[x][y] == 1 {
-				q.PushBack(pair{x, y, d})
+			c := cell{x, y, d}
+			if !mark[x][y] && grid[x][y] == 1 {
+				q.PushBack(c)
+				mark[x][y] = true
+				if d > ans {
+					ans = d
+				}
 			}
 		}
 		q.Remove(e)
 	}
-	for i := 0; i < len(grid); i++ {
-		for j := 0; j < len(grid[i]); j++ {
-			if grid[i][j] == 1 && !m[i][j] {
+
+	for i := 0; i < n; i++ {
+		for j := 0; j < m; j++ {
+			if grid[i][j] == 1 && !mark[i][j] {
 				return -1
 			}
 		}
