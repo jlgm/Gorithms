@@ -8,7 +8,7 @@ type Trie struct {
 }
 
 /** Initialize your data structure here. */
-func Constructor() Trie {
+func NewTrie() Trie {
 	return Trie{
 		root: &trieNode{},
 	}
@@ -55,7 +55,7 @@ func (this *Trie) StartsWith(prefix string) bool {
 
 /**
  * Your Trie object will be instantiated and called as such:
- * obj := Constructor();
+ * obj := NewTrie();
  * obj.Insert(word);
  * param_2 := obj.Search(word);
  * param_3 := obj.StartsWith(prefix);
