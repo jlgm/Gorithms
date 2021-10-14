@@ -1,3 +1,4 @@
+// solves max sub array problem in O(N)
 func maxSubArray(nums []int) int {
 	prev := nums[0]
 	ans := prev

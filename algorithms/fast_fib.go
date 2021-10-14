@@ -4,6 +4,7 @@ import "fmt"
 
 // calculates fibonacci in O(logN)
 // use a memo (map) for speed
+// use math/big for large numbers
 func fib(n int) int {
 
 	if n == 0 {

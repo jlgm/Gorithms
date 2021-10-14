@@ -1,4 +1,3 @@
-//https://leetcode.com/problems/reverse-nodes-in-k-group/
 /**
  * Definition for singly-linked list.
  * type ListNode struct {
@@ -7,58 +6,29 @@
  * }
  */
 
-func listSize(node *ListNode) int {
-	it := node
-	ans := 0
-	for it != nil {
-		it = it.Next
-		ans += 1
+func reverseList(cur *ListNode, k int) (*ListNode, *ListNode) {
+	if cur.Next == nil || k == 1 {
+		return cur, cur
 	}
-	return ans
-}
-
-func rev(node *ListNode, head **ListNode, tail **ListNode, k int) {
-	if k == 1 {
-		*head = node
-		*tail = node.Next
-		return
-	}
-	rev(node.Next, head, tail, k-1)
-	node.Next.Next = node
-	node.Next = *tail
+	tmp, head := reverseList(cur.Next, k-1)
+	tmp.Next = cur
+	cur.Next = nil
+	return cur, head
 }
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
 
-	size := listSize(head)
-	curHead := head
-
-	list := &ListNode{}
-	listLast := list
-
-	for i := 0; i < size/k; i++ {
-		var h *ListNode
-		var t *ListNode
-		rev(curHead, &h, &t, k)
-
-		it := h
-		for j := 0; j < k; j++ {
-			listLast.Next = &ListNode{
-				Val: it.Val,
-			}
-			it = it.Next
-			listLast = listLast.Next
-		}
-		curHead = t
+	it, kk := head, k
+	for it != nil && kk > 0 {
+		kk--
+		it = it.Next
+	}
+	if kk > 0 {
+		return head //base case
 	}
 
-	for curHead != nil {
-		listLast.Next = &ListNode{
-			Val: curHead.Val,
-		}
-		curHead = curHead.Next
-		listLast = listLast.Next
-	}
+	tail, newHead := reverseList(head, k)
+	tail.Next = reverseKGroup(it, k)
 
-	return list.Next
+	return newHead
 }

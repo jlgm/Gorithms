@@ -5,6 +5,7 @@ var (
 
 func createSet(i int) {
 	p[i] = i
+	s[i] = 1
 }
 
 func getRank(i int) int {

@@ -1,26 +1,17 @@
-func rec(ans *[]string, cur string, left, right int) {
-
+func unique(v *[]string, cur string, left int, right int) {
+	if left < 0 || right < left {
+		return
+	}
 	if left == 0 && right == 0 {
-		*ans = append(*ans, cur)
-		return
-	}
-
-	if right < left {
-		return
-	}
-
-	if left > 0 {
-		a := cur + "("
-		rec(ans, a, left-1, right)
-	}
-	if right > 0 {
-		b := cur + ")"
-		rec(ans, b, left, right-1)
+		*v = append(*v, cur)
+	} else {
+		unique(v, cur+"(", left-1, right)
+		unique(v, cur+")", left, right-1)
 	}
 }
 
 func generateParenthesis(n int) []string {
-	ans := make([]string, 0)
-	rec(&ans, "", n, n)
-	return ans
+	v := make([]string, 0)
+	unique(&v, "", n, n)
+	return v
 }
